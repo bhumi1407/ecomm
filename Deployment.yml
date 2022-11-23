@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+ 
+  tasks:
+  - name: install docker
+    yum: name=docker state=present
+ 
+  - name: start docker
+    service: name=docker state=started
+ 
+  - name: get docker file from github
+    git: repo=https://github.com/bhumi1407/ecomm.git dest=/tmp
+
+  - name: build Docker file
+    command: chdir=/tmp docker build -t webapp:CICD .
+   
+  - name: create tag to  to image
+    command: docker tag webapp:CICD bhumi0407/webapp:CICD
+
+  - name: log in to docker hub
+    command: docker login --username bhumi0407 --password Qwerty@321
+   
+  - name: push the image to dockerhub
+    command: docker push bhumi0407/webapp:CICD
+
+  - name: remove docker image from ansible server
+    command: docker rmi webapp:CICD bhumi0407/webapp:CICD
+    ignore_erros: yes
