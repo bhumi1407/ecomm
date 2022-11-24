@@ -1,13 +1,13 @@
 ---
-#- name: run aws configure
-#  expect:
-#   command: "aws configure"
-#   responses:
-#    'AWS Access Key ID': 
-#    'AWS Secret Access Key':
-#    'Default region name':
-#    'Default output format':
-#   no_log: true
+- name: run aws configure
+  expect:
+   command: "aws configure"
+   responses:
+    'AWS Access Key ID': "{{env}}_{{access_key}}" 
+    'AWS Secret Access Key': "{{env}}_{{secret_key}}"
+    'Default region name': us-east-1
+    'Default output format': json
+   no_log: true
 
 - name: copy deploymen directry
   template:
@@ -16,7 +16,7 @@
   with_items:
    - deployment.yaml
   
-#- name: create a deployment
-#  k8s:
-#   state: present
-#   src: {{ansible_env.HOME}}/deployment.yaml 
+- name: create a deployment
+  k8s:
+   state: present
+   src: {{ansible_env.HOME}}/deployment.yaml 
