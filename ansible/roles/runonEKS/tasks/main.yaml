@@ -7,7 +7,7 @@
     'AWS Secret Access Key': "{{lookup('vars','env') + '_' + 'secret_key'}}"
     'Default region name': us-east-1
     'Default output format': json
-   no_log: true
+  no_log: true
 
 - name: copy deploymen & service to {{ansible_env.HOME}}
   template:
