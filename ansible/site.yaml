@@ -1,5 +1,5 @@
 ---
-- hosts: {{target}}
+- hosts: "{{target}}"
   gather_facts: true
   roles:
    - role: runonEKS
