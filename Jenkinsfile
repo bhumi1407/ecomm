@@ -21,6 +21,7 @@ pipeline {
           pwd
           chmod 400 demokey.pem
           ls -lrt
+          echo ${BRANCH_NAME}
           ansible-playbook -i hosts site.yaml -e "target=dev"
 
         '''
