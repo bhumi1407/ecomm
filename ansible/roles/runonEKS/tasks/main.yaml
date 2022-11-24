@@ -20,7 +20,11 @@
    - service.yaml
   
 - name: create a deployment
-  command: "kubectl apply -f {{ansible_env.HOME}}/deployment.yaml"
+  k8s:
+   state: present
+   src: "{{ansible_env.HOME}}/deployment.yaml"
 
 - name: create a service
-  command: "kubectl apply -f {{ansible_env.HOME}}/service.yaml"
+  k8s:
+   state: present
+   src: "{{ansible_env.HOME}}/service.yaml"
