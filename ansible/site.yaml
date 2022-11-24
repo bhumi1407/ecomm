@@ -1,6 +1,8 @@
 ---
 - hosts: "{{target}}"
   gather_facts: true
+  environment:
+   K8s_AUTH_KUBECONFIG: "~/.kube/config"
   roles:
    - role: runonEKS
      become: yes
