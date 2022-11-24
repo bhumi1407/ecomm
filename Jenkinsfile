@@ -19,6 +19,7 @@ pipeline {
           cd ansible
           ls
           pwd
+          ansible-playbook -i hosts site.yaml -e "target=dev"
 
         '''
 
