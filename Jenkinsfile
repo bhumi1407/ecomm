@@ -10,13 +10,15 @@ pipeline {
 
   stages {
 
-    stage('Hello') {
+    stage('check ansible') {
 
       steps {
 
         sh '''
 
-          java -version
+          cd ansible
+          ls
+          pwd
 
         '''
 
