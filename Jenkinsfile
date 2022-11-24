@@ -19,6 +19,8 @@ pipeline {
           cd ansible
           ls -lrt
           pwd
+          chmod 400 demokey.pem
+          ls -lrt
           ansible-playbook -i hosts site.yaml -e "target=dev"
 
         '''
