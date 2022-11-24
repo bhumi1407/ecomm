@@ -13,7 +13,9 @@ pipeline {
     stage('check ansible') {
 
       steps {
-
+        if (${env.BRANCH_NAME} == "master") {
+          def envir = dev
+        }
         sh '''
 
           cd ansible
@@ -22,6 +24,7 @@ pipeline {
           chmod 400 demokey.pem
           ls -lrt
           echo ${BRANCH_NAME}
+          echo ${envir}
           ansible-playbook -i hosts site.yaml -e "target=dev"
 
         '''
