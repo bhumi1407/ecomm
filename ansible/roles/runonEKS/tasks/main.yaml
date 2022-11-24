@@ -20,9 +20,9 @@
 - name: create a deployment
   k8s:
    state: present
-   src: {{ansible_env.HOME}}/deployment.yaml
+   src: "{{ansible_env.HOME}}"/deployment.yaml
 
 - name: create a service
   k8s:
    state: present
-   src: {{ansible_env.HOME}}/service.yaml
+   src: "{{ansible_env.HOME}}"/service.yaml
