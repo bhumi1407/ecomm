@@ -9,7 +9,7 @@
     'Default output format': json
   
 - name: EKS kube-config
-  command: "aws eks update-kubeconfig --region us-east-1 --name {{my-cluster}}"
+  command: "aws eks update-kubeconfig --region us-east-1 --name {{my_cluster}}"
 
 - name: copy deploymen & service to {{ansible_env.HOME}}
   template:
