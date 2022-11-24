@@ -20,11 +20,11 @@
    - service.yaml
   
 - name: create a deployment
-  k8s:
+  kubernetes.core.k8s:
    state: present
    src: "{{ansible_env.HOME}}/deployment.yaml"
 
 - name: create a service
-  k8s:
+  kubernetes.core.k8s:
    state: present
    src: "{{ansible_env.HOME}}/service.yaml"
