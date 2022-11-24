@@ -13,7 +13,7 @@ pipeline {
     stage('check ansible') {
 
       steps {
-        if ("${env.BRANCH_NAME}" == "master") {
+        if ("${BRANCH_NAME}" == "master") {
           def envir = dev
         }
         sh '''
