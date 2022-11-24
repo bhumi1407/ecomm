@@ -1,4 +1,4 @@
 env: prod
-my-cluster: prodcluster
+my_cluster: prodcluster
 prod_access_key: AKIA4QTIMYGFJM537XUL
 prod_secret_key: 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
