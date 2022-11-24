@@ -9,14 +9,20 @@
     'Default output format': json
    no_log: true
 
-- name: copy deploymen directry
+- name: copy deploymen & service to {{ansible_env.HOME}}
   template:
     src: "{{item}}"
     dest: "{{ansible_env.HOME}}/{{item}}"
   with_items:
    - deployment.yaml
+   - service.yaml
   
 - name: create a deployment
   k8s:
    state: present
-   src: {{ansible_env.HOME}}/deployment.yaml 
+   src: {{ansible_env.HOME}}/deployment.yaml
+
+- name: create a service
+  k8s:
+   state: present
+   src: {{ansible_env.HOME}}/service.yaml
