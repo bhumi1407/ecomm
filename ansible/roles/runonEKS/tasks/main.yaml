@@ -5,7 +5,7 @@
    responses:
     'AWS Access Key ID': "{{prod_access_key}}"
     'AWS Secret Access Key': "{{prod_secret_key}}"
-    'Default region name': us-east-1
+    'Default region name': ap-south-1
     'Default output format': json
   
 - name: EKS kube-config
